@@ -18,3 +18,10 @@ We suggest that you begin by typing:
   cd modulo-05
   yarn start
 
+
+  yarn add eslint -D
+
+  yarn eslint --init
+
+
+
