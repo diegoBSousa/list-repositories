@@ -11,6 +11,11 @@ class Main extends Component {
     this.setState({ newRepo: event.target.value });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.newRepo);
+  };
+
   render() {
     const { newRepo } = this.state;
 
@@ -21,7 +26,7 @@ class Main extends Component {
           Repositórios
         </h1>
 
-        <Form onSubmit={() => {}}>
+        <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="Adicionar repositório"
@@ -29,7 +34,7 @@ class Main extends Component {
             onChange={this.handleInputChange}
           />
 
-          <SubmitButton disabled>
+          <SubmitButton>
             <FaPlus color="#FFF" size={14} />
           </SubmitButton>
         </Form>
