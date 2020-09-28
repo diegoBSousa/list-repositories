@@ -7,6 +7,7 @@ class Main extends Component {
   state = {
     newRepo: '',
     repositories: [],
+    loading: false,
   };
 
   handleInputChange = (event) => {
@@ -15,6 +16,8 @@ class Main extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+
+    this.setState({ loading: true });
 
     const { newRepo } = this.state;
 
@@ -27,11 +30,12 @@ class Main extends Component {
     this.setState({
       repositories: [...this.state.repositories, data],
       newRepo: '',
+      loading: false,
     });
   };
 
   render() {
-    const { newRepo } = this.state;
+    const { newRepo, loading } = this.state;
 
     return (
       <Container>
@@ -48,7 +52,7 @@ class Main extends Component {
             onChange={this.handleInputChange}
           />
 
-          <SubmitButton>
+          <SubmitButton loading={loading}>
             <FaPlus color="#FFF" size={14} />
           </SubmitButton>
         </Form>
