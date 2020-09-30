@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 
 class Repository extends Component {
+  state = {
+    repository: {},
+    issues: [],
+    loading: true,
+  };
+
   async componentDidMount() {
     const { match } = this.props;
 
@@ -17,7 +23,11 @@ class Repository extends Component {
       }),
     ]);
 
-    console.log(repository, issues);
+    this.setState({
+      repository: repository.data,
+      issues: issues.data,
+      loading: false,
+    });
   }
 
   render() {
