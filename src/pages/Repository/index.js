@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import api from '../../services/api';
 import { Loading } from './styles';
+import Container from '../../components/Container';
 
 class Repository extends Component {
   static propTypes = {
@@ -47,7 +48,7 @@ class Repository extends Component {
       return <Loading>Carregando</Loading>;
     }
 
-    return <h1>Repository</h1>;
+    return <Container>Repository</Container>;
   }
 }
 
